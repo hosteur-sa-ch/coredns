@@ -1,3 +1,52 @@
+## Build
+
+```bash
+go generate
+CGO_ENABLED=0 go build
+docker build . --tag=hosteurdkuser/coredns-pods:latest --tag=hosteurdkuser/coredns-pods:<version>
+docker push hosteurdkuser/coredns-pod:<version> && docker push hosteurdkuser/coredns-pod:latest
+```
+
+## config
+
+```bash
+kubectl edit --namespace kube-system configmaps coredns
+```
+
+```yml
+apiVersion: v1
+data:
+  Corefile: |
+    .:53 {
+        errors
+        health {
+           lameduck 5s
+        }
+        ready
+        kubeapi
+        kubepods pod.cluster.local in-addr.arpa ip6.arpa {
+           fallthrough in-addr.arpa ip6.arpa
+        }
+        kubernetes cluster.local in-addr.arpa ip6.arpa {
+           pods insecure
+           fallthrough in-addr.arpa ip6.arpa
+           ttl 30
+        }
+        prometheus :9153
+        forward . /etc/resolv.conf {
+           max_concurrent 1000
+        }
+        cache 30
+        loop
+        reload
+        loadbalance
+    }
+kind: ConfigMap
+metadata:
+  name: coredns
+  namespace: kube-system
+```
+
 [![CoreDNS](https://coredns.io/images/CoreDNS_Colour_Horizontal.png)](https://coredns.io)
 
 [![Documentation](https://img.shields.io/badge/godoc-reference-blue.svg)](https://godoc.org/github.com/coredns/coredns)
