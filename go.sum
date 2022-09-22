@@ -192,6 +192,10 @@ github.com/cockroachdb/apd v1.1.0/go.mod h1:8Sl8LxpKi29FqWXR16WEFZRNSz3SoPzUzeMe
 github.com/confluentinc/confluent-kafka-go v1.4.0/go.mod h1:u2zNLny2xq+5rWeTQjFHbDzzNuba4P1vo31r9r4uAdg=
 github.com/coredns/caddy v1.1.1 h1:2eYKZT7i6yxIfGP3qLJoJ7HAsDJqYB+X68g4NYjSrE0=
 github.com/coredns/caddy v1.1.1/go.mod h1:A6ntJQlAWuQfFlsd9hvigKbo2WS0VUs2l1e2F+BawD4=
+github.com/coredns/kubeapi v0.0.0-20220204142012-e4e9337f0a0d h1:8uJF/ZE6WrloZ/CNiZCFAEMv0YWcQkAfuVEobr+DlwU=
+github.com/coredns/kubeapi v0.0.0-20220204142012-e4e9337f0a0d/go.mod h1:EC0QHk8HT9HaMJLHHGOxfy2jF+pVfOCebfIBq8HECTo=
+github.com/coredns/kubepods v0.0.0-20220315194839-59ffe803ead4 h1:WXoPj9VWHGTko3yzjVbjoOw9jsKGxeqZX1uuTUpVYGQ=
+github.com/coredns/kubepods v0.0.0-20220315194839-59ffe803ead4/go.mod h1:usSGMhuhfK78tTmgaYkKD5tPWNXvTfDWaMlKFcjFE3w=
 github.com/coreos/go-semver v0.3.0 h1:wkHLiw0WNATZnSG7epLsujiMCgPAc9xhjJ4tgnAxmfM=
 github.com/coreos/go-semver v0.3.0/go.mod h1:nnelYz7RCh+5ahJtPPxZlU+153eP4D4r3EedlOD2RNk=
 github.com/coreos/go-systemd v0.0.0-20190321100706-95778dfbb74e/go.mod h1:F5haX7vjVVG0kc13fIWeqUViNPyEJxv/OmvnBo0Yme4=

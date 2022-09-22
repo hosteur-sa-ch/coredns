@@ -10,6 +10,8 @@ package dnsserver
 // (after) them during a request, but they must not
 // care what plugin above them are doing.
 var Directives = []string{
+	"kubeapi",
+	"kubepods",
 	"metadata",
 	"geoip",
 	"cancel",
