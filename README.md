@@ -1,3 +1,7 @@
+## Access
+
+`<deployment name>.<namespace>.pod.cluster.local`
+
 ## Build
 
 ```bash
