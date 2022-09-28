@@ -29,6 +29,7 @@ data:
         ready
         kubeapi
         kubepods pod.cluster.local in-addr.arpa ip6.arpa {
+           names label
            fallthrough in-addr.arpa ip6.arpa
 
         }
@@ -51,6 +52,30 @@ metadata:
   name: coredns
   namespace: kube-system
 ```
+
+## Mode kudepods label
+
+Il suffit d’ajouter le nom qu’on veut au label `dns` dans la définition du pod :
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    name: nginx
+    dns: nginx1
+  namespace: test-pods
+
+spec:
+  hostname: nginx
+  subdomain: default-subdomain
+  containers:
+  - image: nginx
+    name: nginx
+```
+
+L’ip du pod sera renvoyé par un enregistrement A `nginx1.test-pods.pod.cluster.local`.
 
 [![CoreDNS](https://coredns.io/images/CoreDNS_Colour_Horizontal.png)](https://coredns.io)
 
