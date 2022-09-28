@@ -77,6 +77,36 @@ spec:
 
 L’ip du pod sera renvoyé par un enregistrement A `nginx1.test-pods.pod.cluster.local`.
 
+### Exemple de déploiement :
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: test-pods
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+        dns: nginx2
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+```
+
+L’ip du pod créé sera renvoyé par un enregistrement A `nginx2.test-pods.pod.cluster.local`.
+
 [![CoreDNS](https://coredns.io/images/CoreDNS_Colour_Horizontal.png)](https://coredns.io)
 
 [![Documentation](https://img.shields.io/badge/godoc-reference-blue.svg)](https://godoc.org/github.com/coredns/coredns)
