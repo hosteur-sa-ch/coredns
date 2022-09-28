@@ -56,5 +56,5 @@ import (
 	_ "github.com/coredns/coredns/plugin/view"
 	_ "github.com/coredns/coredns/plugin/whoami"
 	_ "github.com/coredns/kubeapi"
-	_ "github.com/coredns/kubepods"
+	_ "github.com/hosteur-sa-ch/kubepods"
 )

@@ -7,7 +7,7 @@
 ```bash
 go generate
 CGO_ENABLED=0 go build
-docker build . --tag=hosteurdkuser/coredns-pods:latest --tag=hosteurdkuser/coredns-pods:<version>
+docker build . --tag=hosteurdkuser/coredns-pod:latest --tag=hosteurdkuser/coredns-pod:<version>
 docker push hosteurdkuser/coredns-pod:<version> && docker push hosteurdkuser/coredns-pod:latest
 ```
 
@@ -30,6 +30,7 @@ data:
         kubeapi
         kubepods pod.cluster.local in-addr.arpa ip6.arpa {
            fallthrough in-addr.arpa ip6.arpa
+
         }
         kubernetes cluster.local in-addr.arpa ip6.arpa {
            pods insecure
